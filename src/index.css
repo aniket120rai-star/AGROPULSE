@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: #F4F6F4;
+    color: #1E293B;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: var(--font-display);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.font-mono-nums {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Custom earthy forest green range slider */
+input[type="range"].agro-slider {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 6px;
+  border-radius: 9999px;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="range"].agro-slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #1B4332;
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+input[type="range"].agro-slider::-webkit-slider-thumb:hover {
+  transform: scale(1.1);
+  background: #2D6A4F;
+}
+
+input[type="range"].agro-slider::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #1B4332;
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Weather banner background animations (GPU-composited transform & opacity) */
+@keyframes agro-sun-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes agro-sun-pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.72;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.96;
+  }
+}
+
+@keyframes agro-mote-float {
+  0%, 100% {
+    transform: translate3d(0px, 0px, 0px);
+    opacity: 0.28;
+  }
+  50% {
+    transform: translate3d(-14px, -10px, 0px);
+    opacity: 0.75;
+  }
+}
+
+@keyframes agro-cloud-drift-slow {
+  0% {
+    transform: translate3d(-16%, 0px, 0px);
+  }
+  50% {
+    transform: translate3d(18%, 3px, 0px);
+  }
+  100% {
+    transform: translate3d(-16%, 0px, 0px);
+  }
+}
+
+@keyframes agro-cloud-drift-fast {
+  0% {
+    transform: translate3d(14%, 0px, 0px);
+  }
+  50% {
+    transform: translate3d(-18%, -3px, 0px);
+  }
+  100% {
+    transform: translate3d(14%, 0px, 0px);
+  }
+}
+
+@keyframes agro-rain-fall {
+  0% {
+    transform: translate3d(14px, -110%, 0px) rotate(14deg);
+    opacity: 0;
+  }
+  12% {
+    opacity: 0.65;
+  }
+  88% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translate3d(-26px, 420%, 0px) rotate(14deg);
+    opacity: 0;
+  }
+}
+
+.animate-agro-sun-spin {
+  animation: agro-sun-spin 36s linear infinite;
+}
+
+.animate-agro-sun-pulse {
+  animation: agro-sun-pulse 5.5s ease-in-out infinite;
+}
+
+.animate-agro-mote-float {
+  animation: agro-mote-float 7s ease-in-out infinite;
+}
+
+.animate-agro-cloud-slow {
+  animation: agro-cloud-drift-slow 24s ease-in-out infinite;
+}
+
+.animate-agro-cloud-fast {
+  animation: agro-cloud-drift-fast 17s ease-in-out infinite;
+}
+
+.animate-agro-rain {
+  animation: agro-rain-fall 1.15s linear infinite;
+}
+

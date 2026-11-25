@@ -1,0 +1,8 @@
+{
+  "name": "AgroPulse",
+  "description": "Intelligent farming assistance platform for crop recommendations, seasonal calendars, AI plant disease diagnosis, and localized agricultural guidance.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
